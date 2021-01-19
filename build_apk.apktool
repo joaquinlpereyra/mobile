@@ -1,0 +1,12 @@
+#/bin/env bash 
+
+set -eux
+
+DIR=$1
+OUTPUT=$2
+
+# if you like cryptic commands you can use
+# apk tool b $1 -o $2 too.
+# but why would you???
+apktool build $1 -o $2
+
